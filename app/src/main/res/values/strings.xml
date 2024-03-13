@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">WebPSample</string>
+
+    <string name="general_format_png">PNG</string>
+    <string name="general_format_jpg">JPG</string>
+    <string name="general_format_webp">WebP</string>
+    <string name="general_file_size">%.1f KB</string>
+
+    <string name="png_screen_title">Conversion from PNG to WebP</string>
+    <string name="png_column_png_subtitle">Original</string>
+    <string name="png_column_webp_lossless_subtitle">Lossless</string>
+    <string name="png_column_webp_lossy_subtitle">80% Quality</string>
+
+    <string name="jpg_screen_title">Conversion from JPG to WebP</string>
+    <string name="jpg_image_beach">Beach</string>
+    <string name="jpg_image_city">City</string>
+    <string name="jpg_image_mountains">Mountains</string>
+    <string name="jpg_image_lake">Lake</string>
+    <string name="jpg_image_party">Party</string>
+    <string name="jpg_format_selection_image_quality">%s Image Quality: %d%%</string>
+    <string name="jpg_format_selection_file_size">File size: %d KB</string>
+    <string name="jpg_format_selection_jpg">Original JPG</string>
+    <string name="jpg_format_selection_webp">Converted WebP</string>
+</resources>
