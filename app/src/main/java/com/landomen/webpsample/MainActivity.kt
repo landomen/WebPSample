@@ -2,7 +2,6 @@ package com.landomen.webpsample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -65,10 +64,6 @@ private fun Content(modifier: Modifier = Modifier) {
         composable(NavigationTarget.BENCHMARK.route) {
             BenchmarkScreen(modifier)
         }
-    }
-
-    BackHandler {
-        navController.popBackStack()
     }
 }
 
