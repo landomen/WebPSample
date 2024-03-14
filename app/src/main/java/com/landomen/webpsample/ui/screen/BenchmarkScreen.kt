@@ -43,7 +43,7 @@ private var benchmarkRunTimes = mutableListOf<Int>()
 private var runStartTimestamp = 0
 
 @Composable
-fun BenchmarkScreen(modifier: Modifier = Modifier) {
+internal fun BenchmarkScreen(modifier: Modifier = Modifier) {
     var selectedImageFormat by remember {
         mutableStateOf(JpgComparisonImageFormat.JPG)
     }

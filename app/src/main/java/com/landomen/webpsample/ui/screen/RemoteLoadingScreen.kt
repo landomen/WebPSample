@@ -31,7 +31,7 @@ import net.engawapg.lib.zoomable.zoomable
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun RemoteLoadingScreen(modifier: Modifier = Modifier) {
+internal fun RemoteLoadingScreen(modifier: Modifier = Modifier) {
     var imageLoadingLibrary by remember {
         mutableStateOf(ImageLoadingLibrary.NONE)
     }
