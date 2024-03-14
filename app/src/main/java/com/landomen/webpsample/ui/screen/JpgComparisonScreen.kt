@@ -42,6 +42,8 @@ import net.engawapg.lib.zoomable.ZoomState
 import net.engawapg.lib.zoomable.rememberZoomState
 import net.engawapg.lib.zoomable.zoomable
 
+private const val DEFAULT_IMAGE_QUALITY_PERCENTAGE = 75f
+
 @Composable
 internal fun JpgComparisonScreen(modifier: Modifier = Modifier) {
     var selectedPreviewImage by remember { mutableStateOf(JpgComparisonImage.BEACH) }
@@ -49,7 +51,7 @@ internal fun JpgComparisonScreen(modifier: Modifier = Modifier) {
         mutableStateOf(JpgComparisonImageFormat.JPG)
     }
     var imageQualityPercentage by remember {
-        mutableFloatStateOf(100f)
+        mutableFloatStateOf(DEFAULT_IMAGE_QUALITY_PERCENTAGE)
     }
     val zoomState = rememberZoomState()
 
