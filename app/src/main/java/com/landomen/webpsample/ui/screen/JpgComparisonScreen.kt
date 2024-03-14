@@ -1,6 +1,5 @@
 package com.landomen.webpsample.ui.screen
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
@@ -26,8 +24,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -38,6 +34,7 @@ import com.landomen.webpsample.R
 import com.landomen.webpsample.data.jpg.model.JpgComparisonImage
 import com.landomen.webpsample.data.jpg.model.JpgComparisonImageFormat
 import com.landomen.webpsample.data.jpg.source.JpgComparisonImagesProvider
+import com.landomen.webpsample.ui.widget.RadioButtonWithLabel
 import net.engawapg.lib.zoomable.ZoomState
 import net.engawapg.lib.zoomable.rememberZoomState
 import net.engawapg.lib.zoomable.zoomable
@@ -117,9 +114,9 @@ private fun ComparisonImageSelectorHeader(
         items(JpgComparisonImagesProvider.comparisonImages.keys.size) { index ->
             val image = JpgComparisonImagesProvider.comparisonImages.keys.elementAt(index)
 
-            SelectionButton(
+            RadioButtonWithLabel(
                 titleRes = image.titleRes,
-                isSelected = selectedPreviewImage == image,
+                selected = selectedPreviewImage == image,
                 onClick = { onPreviewImageSelect(image) })
         }
     }
@@ -222,47 +219,19 @@ private fun FormatSelector(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        SelectionButton(
+        RadioButtonWithLabel(
             titleRes = R.string.jpg_format_selection_jpg,
-            isSelected = selectedPreviewImageFormat == JpgComparisonImageFormat.JPG,
+            selected = selectedPreviewImageFormat == JpgComparisonImageFormat.JPG,
             onClick = {
                 onFormatSelect(JpgComparisonImageFormat.JPG)
             }
         )
 
-        SelectionButton(
+        RadioButtonWithLabel(
             titleRes = R.string.jpg_format_selection_webp,
-            isSelected = selectedPreviewImageFormat == JpgComparisonImageFormat.WEBP,
+            selected = selectedPreviewImageFormat == JpgComparisonImageFormat.WEBP,
             onClick = {
                 onFormatSelect(JpgComparisonImageFormat.WEBP)
-            }
-        )
-    }
-}
-
-@Composable
-private fun SelectionButton(
-    @StringRes titleRes: Int,
-    isSelected: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.alpha(
-            if (isSelected) {
-                1f
-            } else {
-                0.8f
-            }
-        )
-    ) {
-        Text(
-            text = stringResource(id = titleRes),
-            color = if (isSelected) {
-                Color.White
-            } else {
-                Color.LightGray
             }
         )
     }

@@ -1,7 +1,6 @@
 package com.landomen.webpsample.ui.screen
 
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,6 +33,7 @@ import coil.request.ImageRequest
 import coil.size.Size
 import com.landomen.webpsample.R
 import com.landomen.webpsample.data.jpg.model.JpgComparisonImageFormat
+import com.landomen.webpsample.ui.widget.RadioButtonWithLabel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -289,29 +288,6 @@ private fun SelectableFormatRow(
             onClick = { onOptionSelect(JpgComparisonImageFormat.WEBP) })
     }
 }
-
-@Composable
-private fun RadioButtonWithLabel(
-    @StringRes titleRes: Int,
-    selected: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-        modifier = modifier
-    ) {
-        RadioButton(
-            selected = selected,
-            enabled = enabled,
-            onClick = onClick
-        )
-        Text(stringResource(id = titleRes))
-    }
-}
-
 
 sealed interface BenchmarkState {
     data object Idle : BenchmarkState
