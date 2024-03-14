@@ -31,4 +31,13 @@
     <string name="remote_loading_screen_title">Select preferred image loading library to load a WebP image from URL</string>
     <string name="remote_loading_button_load_coil">Load with Coil</string>
     <string name="remote_loading_button_load_glide">Load with Glide</string>
+
+    <string name="benchmark_screen_title">The benchmark will load the same image in selected format 100 times and then report the average load time.</string>
+    <string name="benchmark_button_start">Start benchmark</string>
+    <string name="benchmark_result">Benchmark completed!</string>
+    <string name="benchmark_run_count">Run: %d/100</string>
+    <string name="benchmark_result_average">Average load time: %d milliseconds</string>
+    <string name="benchmark_result_min">Min load time: %d milliseconds</string>
+    <string name="benchmark_result_max">Max load time: %d milliseconds</string>
+    <string name="benchmark_result_run">Run %d load time: %d milliseconds</string>
 </resources>
