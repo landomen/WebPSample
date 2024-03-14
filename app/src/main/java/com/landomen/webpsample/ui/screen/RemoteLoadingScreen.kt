@@ -29,6 +29,9 @@ import com.landomen.webpsample.R
 import net.engawapg.lib.zoomable.rememberZoomState
 import net.engawapg.lib.zoomable.zoomable
 
+private const val REMOTE_IMAGE_URL =
+    "https://raw.githubusercontent.com/landomen/WebPSample/main/app/src/main/res/drawable/bg_beach_converted_80.webp"
+
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 internal fun RemoteLoadingScreen(modifier: Modifier = Modifier) {
@@ -77,7 +80,7 @@ internal fun RemoteLoadingScreen(modifier: Modifier = Modifier) {
                 ImageLoadingLibrary.NONE -> {}
                 ImageLoadingLibrary.COIL -> {
                     AsyncImage(
-                        model = "https://raw.githubusercontent.com/landomen/WebPSample/main/app/src/main/res/drawable/bg_beach_converted_80.webp",
+                        model = REMOTE_IMAGE_URL,
                         contentDescription = "Coil image",
                         modifier = Modifier
                             .fillMaxSize()
@@ -87,7 +90,7 @@ internal fun RemoteLoadingScreen(modifier: Modifier = Modifier) {
 
                 ImageLoadingLibrary.GLIDE -> {
                     GlideImage(
-                        model = "https://raw.githubusercontent.com/landomen/WebPSample/main/app/src/main/res/drawable/bg_beach_converted_80.webp",
+                        model = REMOTE_IMAGE_URL,
                         contentDescription = "Glide image",
                         modifier = Modifier
                             .fillMaxSize()
