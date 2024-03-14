@@ -6,6 +6,12 @@
     <string name="general_format_webp">WebP</string>
     <string name="general_file_size">%.1f KB</string>
 
+    <string name="intro_description">This is a sample project to compare image quality between PNG/JPG and WebP.\n\nSelect a comparison test to get started.</string>
+    <string name="intro_png_vs_webp">PNG vs WebP</string>
+    <string name="intro_jpg_vs_webp">JPG vs WebP</string>
+    <string name="intro_remote_loading">Remote Loading</string>
+    <string name="intro_benchmark">Benchmark</string>
+
     <string name="png_screen_title">Conversion from PNG to WebP</string>
     <string name="png_column_png_subtitle">Original</string>
     <string name="png_column_webp_lossless_subtitle">Lossless</string>
@@ -21,4 +27,8 @@
     <string name="jpg_format_selection_file_size">File size: %d KB</string>
     <string name="jpg_format_selection_jpg">Original JPG</string>
     <string name="jpg_format_selection_webp">Converted WebP</string>
+
+    <string name="remote_loading_screen_title">Select preferred image loading library to load a WebP image from URL</string>
+    <string name="remote_loading_button_load_coil">Load with Coil</string>
+    <string name="remote_loading_button_load_glide">Load with Glide</string>
 </resources>

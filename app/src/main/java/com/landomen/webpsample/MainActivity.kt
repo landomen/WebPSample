@@ -13,9 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.landomen.webpsample.ui.model.ScreenSelection
+import com.landomen.webpsample.ui.screen.BenchmarkScreen
 import com.landomen.webpsample.ui.screen.IntroScreen
 import com.landomen.webpsample.ui.screen.JpgComparisonScreen
 import com.landomen.webpsample.ui.screen.PngComparisonScreen
+import com.landomen.webpsample.ui.screen.RemoteLoadingScreen
 import com.landomen.webpsample.ui.theme.WebPSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,8 +42,14 @@ private fun Content(modifier: Modifier = Modifier) {
     NavHost(navController = navController, startDestination = NavigationTarget.INTRO.route) {
         composable(NavigationTarget.INTRO.route) {
             IntroScreen(
-                onPngSelect = { navController.navigate(NavigationTarget.PNG_VS_WEBP.route) },
-                onJpgSelect = { navController.navigate(NavigationTarget.JPG_VS_WEBP.route) },
+                onScreenSelect = {
+                    when (it) {
+                        ScreenSelection.PNG_VS_WEBP -> navController.navigate(NavigationTarget.PNG_VS_WEBP.route)
+                        ScreenSelection.JPG_VS_WEBP -> navController.navigate(NavigationTarget.JPG_VS_WEBP.route)
+                        ScreenSelection.REMOTE_LOADING -> navController.navigate(NavigationTarget.REMOTE_LOADING.route)
+                        ScreenSelection.BENCHMARK -> navController.navigate(NavigationTarget.BENCHMARK.route)
+                    }
+                },
                 modifier = modifier
             )
         }
@@ -49,6 +58,12 @@ private fun Content(modifier: Modifier = Modifier) {
         }
         composable(NavigationTarget.PNG_VS_WEBP.route) {
             PngComparisonScreen(modifier)
+        }
+        composable(NavigationTarget.REMOTE_LOADING.route) {
+            RemoteLoadingScreen(modifier)
+        }
+        composable(NavigationTarget.BENCHMARK.route) {
+            BenchmarkScreen(modifier)
         }
     }
 
@@ -60,5 +75,7 @@ private fun Content(modifier: Modifier = Modifier) {
 enum class NavigationTarget(val route: String) {
     INTRO("intro_screen"),
     JPG_VS_WEBP("jpg_vs_webp_screen"),
-    PNG_VS_WEBP("png_vs_webp_screen")
+    PNG_VS_WEBP("png_vs_webp_screen"),
+    BENCHMARK("benchmark_screen"),
+    REMOTE_LOADING("remote_loading_screen")
 }

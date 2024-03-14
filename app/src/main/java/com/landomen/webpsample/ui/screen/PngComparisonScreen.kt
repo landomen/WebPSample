@@ -26,6 +26,8 @@ import androidx.compose.ui.unit.dp
 import com.landomen.webpsample.R
 import com.landomen.webpsample.data.png.model.PngComparisonImage
 import com.landomen.webpsample.data.png.source.PngComparisonImagesProvider.comparisonImages
+import net.engawapg.lib.zoomable.rememberZoomState
+import net.engawapg.lib.zoomable.zoomable
 
 @Composable
 internal fun PngComparisonScreen(modifier: Modifier = Modifier) {
@@ -161,7 +163,8 @@ private fun SingleComparisonImage(
     ) {
         Image(
             painter = painterResource(id = image.drawableId),
-            contentDescription = image.contentDescription
+            contentDescription = image.contentDescription,
+            modifier = Modifier.zoomable(rememberZoomState())
         )
 
         Spacer(modifier = Modifier.height(8.dp))
